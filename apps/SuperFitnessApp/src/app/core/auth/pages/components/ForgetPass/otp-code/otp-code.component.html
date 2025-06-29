@@ -1,0 +1,25 @@
+<div class="otp-container">
+  <p class="otp-title">OTP CODE</p>
+  <p class="otp-subtitle">Enter Your OTP Check Your Email</p>
+
+  <form [formGroup]="otpForm" (ngSubmit)="submit()">
+    <div class="otp-inputs">
+      <input #otpInput type="text" maxlength="1" formControlName="digit1" class="otp-box" autocomplete="one-time-code" required (input)="moveToNext($event, 1)" />
+      <input #otpInput type="text" maxlength="1" formControlName="digit2" class="otp-box" autocomplete="one-time-code" required (input)="moveToNext($event, 2)" />
+      <input #otpInput type="text" maxlength="1" formControlName="digit3" class="otp-box" autocomplete="one-time-code" required (input)="moveToNext($event, 3)" />
+      <input #otpInput type="text" maxlength="1" formControlName="digit4" class="otp-box" autocomplete="one-time-code" required (input)="moveToNext($event, 4)" />
+      <input #otpInput type="text" maxlength="1" formControlName="digit5" class="otp-box" autocomplete="one-time-code" required (input)="moveToNext($event, 5)" />
+      <input #otpInput type="text" maxlength="1" formControlName="digit6" class="otp-box" autocomplete="one-time-code" required (input)="moveToNext($event, 6)" />
+    </div>
+    <button type="submit" class="btn" [disabled]="otpForm.invalid">
+      Confirm
+    </button>
+    <div class="resend-section">
+      <span>Didnt Recieve Verification Code?</span>
+      <a class="resend-link" (click)="resendCode()">Resend Code?</a>
+    </div>
+  </form>
+
+  <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+  <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
+</div>

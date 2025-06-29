@@ -1,0 +1,43 @@
+<div>
+  <p class="text-2xl font-bold text-center m-2">Welcome Back</p>
+</div>
+
+<div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+
+<div class="form-box">
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
+    <input
+      type="email"
+      placeholder="Email"
+      formControlName="email"
+      required
+    />
+    <input
+      type="password"
+      placeholder="Password"
+      formControlName="password"
+      required
+    />
+
+    <div class="forgot">
+      <a routerLink="/auth/forgot-password">Forgot Password?</a>
+    </div>
+
+    <button type="submit" class="btn" [disabled]="loginForm.invalid">
+      Login
+    </button>
+
+    <div class="divider">Or</div>
+
+    <div class="social-icons">
+      <i class="fab fa-facebook-f"></i>
+      <i class="fab fa-google"></i>
+      <i class="fab fa-apple"></i>
+    </div>
+
+    <p class="switch">
+      Don't have an account?
+      <a routerLink="/auth/regester">Create One</a>
+    </p>
+  </form>
+</div>

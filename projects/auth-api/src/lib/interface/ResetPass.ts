@@ -1,4 +1,5 @@
 export interface ResetPassUser{
     email:string
-    newPassword:string
+    password:string
+    confirmPassword:string
 }
